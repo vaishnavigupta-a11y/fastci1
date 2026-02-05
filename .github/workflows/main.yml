@@ -165,32 +165,73 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+# jobs:
+#   build:
+#   test:
+#   deploy:
+# job mtlb task mglb github en task ko hi dekehga
+# uns-on: ubuntu-latest ka matlab:
 
+# 👉 GitHub tumhare liye ek free computer (server) banata hai
+# 👉 Jiska Operating System Ubuntu Linux hota hai (latest version)
+
+# Is computer ke upar hi:
+
+# Python install hota hai
+
+# Docker build hota hai
+
+# Requirements install hoti hain
+
+# Tests run hote hain
+
+# Code check hota hai
+
+# Docker push bhi ho sakta hai
+
+# Deployment scripts bhi chal sakte hain
+
+# ➡ Tumhari saari CI/CD commands isi free Ubuntu machine par run hoti hain.
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
+    # GitHub provides you a free Linux server for CI/CD.
 
-    steps:
+    steps: #gitu jo action ubnatu machine me steo by step kreg
       # Checkout code
-      - name: Checkout repository
+      - name: Checkout repository #machine joki vritaull bani hai linux os ki usme github projcet dwnnd krta hai jwoi project hjisme hmne changes kre ya pul kra woi prject
         uses: actions/checkout@v3
 
       # Setup Python
       - name: Set up Python
+#       🟦 3. actions/checkout@v3
+
+# Ye ek ready-made button hai GitHub ke paas.
+
+# Ye button dabate hi:
+
+# 🟨 4. GitHub tumhara poora project download kar deta hai
+
+# Exactly waise hi jaise tum:
+
+# GitHub se project ZIP download karte ho
+
+# ya git clone karte ho
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
-      # Install dependencies
-      - name: Install dependencies
+      # Install dependencies 
+      - name: Install dependencies #name ka mtln baisvally jo githu actuon me jb ham run krte hai tets jb dukhte hai na step ke nam woi steo ke nam hai
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi 
+          run ka mtkb ki jb ye cj dnwnd hojye t kosi commad run ho ubantu sytem me
 
       # Run tests (skip if no tests)
       - name: Run tests
         run: |
-          echo "No tests added yet"
+          pytest
 
       # Login to GHCR
         # name: Log in to GitHub Container Registry
