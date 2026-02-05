@@ -156,6 +156,8 @@
 #       #       docker stop fastapi || true
 #       #       docker rm fastapi || true
 #       #       docker run -d -p 8000:8000 --name fastapi ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
+
+# hiiii
 name: FastAPI CI/CD Pipeline
 
 on:
