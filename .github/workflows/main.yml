@@ -40,16 +40,27 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # # Build Docker image
+      # - name: Build Docker image
+      #   run: |
+      #     docker build -t ghcr.io/${{ github.repository_owner }}/fastapi-app:latest .
+
+      # # Push Docker image
+      # - name: Push Docker Image
+      #   run: |
+      #     docker push ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
+
+
+
       # Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/fastapi-app:latest .
+             docker build -t ghcr.io/vaishnavigupta-a11y/fastapi-app:latest .
 
       # Push Docker image
       - name: Push Docker Image
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
-
+           docker push ghcr.io/vaishnavigupta-a11y/fastapi-app:latest
       # OPTIONAL: Deploy (e.g., to SSH Server)
       # - name: Deploy over SSH
       #   uses: appleboy/ssh-action@v0.1.6
