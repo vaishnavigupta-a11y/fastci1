@@ -457,7 +457,7 @@ jobs:
       # Run tests (skip if no tests)
       - name: Run tests
         run: |
-          echo "No tests added yet"
+          pytest
 
       # Login to GHCR
         # name: Log in to GitHub Container Registry
