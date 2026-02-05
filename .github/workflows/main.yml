@@ -32,48 +32,53 @@ jobs:
         run: |
           echo "No tests added yet"
 
-      # Login to GHCR
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.SECRET_TOKEN }}
+      - name: Run FastAPI app (import check)
+        run: |
+          python -c "import main"
+               
+
+      # # Login to GHCR
+      # - name: Log in to GitHub Container Registry
+      #   uses: docker/login-action@v2
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.SECRET_TOKEN }}
+
+      # # # Build Docker image
+      # # - name: Build Docker image
+      # #   run: |
+      # #     docker build -t ghcr.io/${{ github.repository_owner }}/fastapi-app:latest .
+
+      # # # Push Docker image
+      # # - name: Push Docker Image
+      # #   run: |
+      # #     docker push ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
+
+
 
       # # Build Docker image
       # - name: Build Docker image
       #   run: |
-      #     docker build -t ghcr.io/${{ github.repository_owner }}/fastapi-app:latest .
+      #        docker build -t 1080171/fastapi-app:latest .
+
+      #        # docker build -t ghcr.io/vaishnavigupta-a11y/fastapi-app:latest .
 
       # # Push Docker image
       # - name: Push Docker Image
       #   run: |
-      #     docker push ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
+      #      docker push 1080171/fastapi-app:latest
 
-
-
-      # Build Docker image
-      - name: Build Docker image
-        run: |
-             docker build -t 1080171/fastapi-app:latest .
-
-             # docker build -t ghcr.io/vaishnavigupta-a11y/fastapi-app:latest .
-
-      # Push Docker image
-      - name: Push Docker Image
-        run: |
-           docker push 1080171/fastapi-app:latest
-
-           # docker push ghcr.io/vaishnavigupta-a11y/fastapi-app:latest
-      # OPTIONAL: Deploy (e.g., to SSH Server)
-      # - name: Deploy over SSH
-      #   uses: appleboy/ssh-action@v0.1.6
-      #   with:
-      #     host: ${{ secrets.SERVER_IP }}
-      #     username: ${{ secrets.SERVER_USER }}
-      #     key: ${{ secrets.SERVER_SSH_KEY }}
-      #     script: |
-      #       docker pull ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
-      #       docker stop fastapi || true
-      #       docker rm fastapi || true
-      #       docker run -d -p 8000:8000 --name fastapi ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
+      #      # docker push ghcr.io/vaishnavigupta-a11y/fastapi-app:latest
+      # # OPTIONAL: Deploy (e.g., to SSH Server)
+      # # - name: Deploy over SSH
+      # #   uses: appleboy/ssh-action@v0.1.6
+      # #   with:
+      # #     host: ${{ secrets.SERVER_IP }}
+      # #     username: ${{ secrets.SERVER_USER }}
+      # #     key: ${{ secrets.SERVER_SSH_KEY }}
+      # #     script: |
+      # #       docker pull ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
+      # #       docker stop fastapi || true
+      # #       docker rm fastapi || true
+      # #       docker run -d -p 8000:8000 --name fastapi ghcr.io/${{ github.repository_owner }}/fastapi-app:latest
