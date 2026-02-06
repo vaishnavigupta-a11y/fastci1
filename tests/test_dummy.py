@@ -87,6 +87,7 @@ def test_update_item():
 def test_patch_item():
     data = {
         "name": "Laptop",
+
         "price": 250.0  # Only updating price
     }
     response = client.patch("/items/1", json=data)
