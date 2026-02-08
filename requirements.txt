@@ -1,10 +1,6 @@
 fastapi
 uvicorn
 pytest
-<<<<<<< HEAD
-httpx
-=======
 httpx
 # pydantic
 pydantic
->>>>>>> 89cd429 (c7)
